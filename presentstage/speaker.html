@@ -1,0 +1,21 @@
+<aside id="speaker" hidden>
+  <style>
+    #speaker { position: fixed; inset: 0; overflow: auto; padding: 24px; background: white; color: #222; font: 18px/1.5 system-ui, sans-serif; }
+    #speaker #clock { font-size: 48px; font-variant-numeric: tabular-nums; }
+    #speaker h2 { font-size: 24px; }
+    #speaker textarea { box-sizing: border-box; width: 100%; min-height: 45vh; padding: 8px; font: inherit; }
+    #preview { position: relative; width: min(100%, 360px); aspect-ratio: 16/9; overflow: hidden; }
+    #speaker #preview .view { position: absolute; inset: 0; }
+    #speaker button { font: inherit; }
+  </style>
+  <div id="clock">0:00</div>
+  <div id="position"></div>
+  <h2 id="heading"></h2>
+  <div id="preview"></div>
+  <textarea id="words" aria-label="Speaker notes"></textarea>
+  <div>
+    <button id="back">Previous</button>
+    <button id="forward">Next</button>
+    <button id="reset">Reset timer</button>
+  </div>
+</aside>

@@ -1,0 +1,11 @@
+#!/bin/zsh
+set -eu
+if (( $# != 1 )) || [[ ! -f "$1" ]]; then
+    print -u2 'Usage: ./chrome path/to/deck.html'
+    exit 1
+fi
+deck_url=$(python3 -c 'from pathlib import Path; import sys; print(Path(sys.argv[1]).resolve().as_uri())' "$1")
+session=$(uuidgen)
+for view in slides transcript; do
+    open -na 'Google Chrome' --args --new-window "${deck_url}?view=${view}&session=${session}"
+done
